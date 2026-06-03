@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaesarAnimation.cs" />
+    <Compile Include="CaesarCipher.cs" />
     <Compile Include="EvaluationResult.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
