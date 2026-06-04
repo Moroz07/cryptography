@@ -61,7 +61,7 @@ namespace Cryptography
         private void DecryptButton_Click(object sender, EventArgs e)
         {
             string text = CipherTextTextBox.Text;
-            int shift = (int)numericUpDown1.Value;
+            int shift = (int)NumberShiftNumericUpDown.Value;
 
             if (text == null || text == "")
             {
@@ -85,7 +85,7 @@ namespace Cryptography
         private void EncryptButton_Click(object sender, EventArgs e)
         {
             string text = plainTextTextBox.Text;
-            int shift = (int)numericUpDown1.Value;
+            int shift = (int)NumberShiftNumericUpDown.Value;
 
             if (text == null || text == "")
             {
@@ -108,9 +108,9 @@ namespace Cryptography
 
         private void OpenUrlButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != null && textBox1.Text != "")
+            if (UrlTextBox.Text != null && UrlTextBox.Text != "")
             {
-                Process.Start(new ProcessStartInfo(textBox1.Text) { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(UrlTextBox.Text) { UseShellExecute = true });
             }
         }
 
@@ -119,8 +119,10 @@ namespace Cryptography
             int index = ChoiceThemasListBox.SelectedIndex;
             if (index >= 0 && index < databaseLoader.helpUrls.Count)
             {
-                textBox1.Text = databaseLoader.helpUrls[index];
+                UrlTextBox.Text = databaseLoader.helpUrls[index];
             }
         }
+
+
     }
 }
