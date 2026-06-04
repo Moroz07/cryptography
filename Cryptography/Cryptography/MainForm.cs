@@ -66,7 +66,7 @@ namespace Cryptography
             if (text == null || text == "")
             {
                 MessageBox.Show("Ошибка: нечего дешифровать", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK);
                 return;
             }
 
@@ -123,6 +123,6 @@ namespace Cryptography
             }
         }
 
-
+       
     }
 }

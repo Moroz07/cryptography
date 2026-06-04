@@ -30,6 +30,8 @@
         {
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.PasswordGeneratePage = new System.Windows.Forms.TabPage();
+            this.InfoLabel = new System.Windows.Forms.Label();
+            this.SymbolLabel = new System.Windows.Forms.Label();
             this.LengthPasswordLabel = new System.Windows.Forms.Label();
             this.LengthPasswordNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.GeneratePasswordRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -39,10 +41,14 @@
             this.EnglishSymbolCheckBox = new System.Windows.Forms.CheckBox();
             this.RussianSymbolCheckBox = new System.Windows.Forms.CheckBox();
             this.PasswordStrengthEvaluatorPage = new System.Windows.Forms.TabPage();
+            this.PasswordLabel = new System.Windows.Forms.Label();
             this.ResultRichTextBox = new System.Windows.Forms.RichTextBox();
             this.PasswordUser = new System.Windows.Forms.TextBox();
             this.StrengthEvaluatorButton = new System.Windows.Forms.Button();
             this.CipherPage = new System.Windows.Forms.TabPage();
+            this.ShiftLabel = new System.Windows.Forms.Label();
+            this.DecryptLabel = new System.Windows.Forms.Label();
+            this.EncryptLabel = new System.Windows.Forms.Label();
             this.DecryptButton = new System.Windows.Forms.Button();
             this.EncryptButton = new System.Windows.Forms.Button();
             this.ResultRichTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -53,11 +59,6 @@
             this.OpenUrlButton = new System.Windows.Forms.Button();
             this.UrlTextBox = new System.Windows.Forms.TextBox();
             this.ChoiceThemasListBox = new System.Windows.Forms.ListBox();
-            this.SymbolLabel = new System.Windows.Forms.Label();
-            this.PasswordLabel = new System.Windows.Forms.Label();
-            this.EncryptLabel = new System.Windows.Forms.Label();
-            this.DecryptLabel = new System.Windows.Forms.Label();
-            this.ShiftLabel = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.PasswordGeneratePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthPasswordNumericUpDown)).BeginInit();
@@ -82,6 +83,7 @@
             // 
             // PasswordGeneratePage
             // 
+            this.PasswordGeneratePage.Controls.Add(this.InfoLabel);
             this.PasswordGeneratePage.Controls.Add(this.SymbolLabel);
             this.PasswordGeneratePage.Controls.Add(this.LengthPasswordLabel);
             this.PasswordGeneratePage.Controls.Add(this.LengthPasswordNumericUpDown);
@@ -98,6 +100,27 @@
             this.PasswordGeneratePage.TabIndex = 2;
             this.PasswordGeneratePage.Text = "Генерация пароля";
             this.PasswordGeneratePage.UseVisualStyleBackColor = true;
+            // 
+            // InfoLabel
+            // 
+            this.InfoLabel.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.InfoLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.InfoLabel.Location = new System.Drawing.Point(56, 423);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(258, 52);
+            this.InfoLabel.TabIndex = 9;
+            this.InfoLabel.Text = "После генерации пароля вы можете посмотреть его надёжность во вкладке: Оценка пар" +
+    "оля";
+            // 
+            // SymbolLabel
+            // 
+            this.SymbolLabel.AutoSize = true;
+            this.SymbolLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SymbolLabel.Location = new System.Drawing.Point(45, 38);
+            this.SymbolLabel.Name = "SymbolLabel";
+            this.SymbolLabel.Size = new System.Drawing.Size(199, 26);
+            this.SymbolLabel.TabIndex = 8;
+            this.SymbolLabel.Text = "Выберите символы";
             // 
             // LengthPasswordLabel
             // 
@@ -134,6 +157,7 @@
             // 
             // GeneratePasswordRichTextBox
             // 
+            this.GeneratePasswordRichTextBox.Enabled = false;
             this.GeneratePasswordRichTextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GeneratePasswordRichTextBox.Location = new System.Drawing.Point(405, 322);
             this.GeneratePasswordRichTextBox.Name = "GeneratePasswordRichTextBox";
@@ -144,7 +168,7 @@
             // GenerateButton
             // 
             this.GenerateButton.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GenerateButton.Location = new System.Drawing.Point(134, 380);
+            this.GenerateButton.Location = new System.Drawing.Point(81, 376);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(225, 44);
             this.GenerateButton.TabIndex = 4;
@@ -210,9 +234,21 @@
             this.PasswordStrengthEvaluatorPage.Text = "Оценка пароля";
             this.PasswordStrengthEvaluatorPage.UseVisualStyleBackColor = true;
             // 
+            // PasswordLabel
+            // 
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PasswordLabel.Location = new System.Drawing.Point(60, 41);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(215, 26);
+            this.PasswordLabel.TabIndex = 8;
+            this.PasswordLabel.Text = "Введите свой пароль";
+            // 
             // ResultRichTextBox
             // 
+            this.ResultRichTextBox.Enabled = false;
             this.ResultRichTextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ResultRichTextBox.ForeColor = System.Drawing.SystemColors.MenuText;
             this.ResultRichTextBox.Location = new System.Drawing.Point(324, 255);
             this.ResultRichTextBox.Name = "ResultRichTextBox";
             this.ResultRichTextBox.Size = new System.Drawing.Size(608, 278);
@@ -257,6 +293,36 @@
             this.CipherPage.TabIndex = 4;
             this.CipherPage.Text = "Шифр Цезаря";
             this.CipherPage.UseVisualStyleBackColor = true;
+            // 
+            // ShiftLabel
+            // 
+            this.ShiftLabel.AutoSize = true;
+            this.ShiftLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ShiftLabel.Location = new System.Drawing.Point(41, 190);
+            this.ShiftLabel.Name = "ShiftLabel";
+            this.ShiftLabel.Size = new System.Drawing.Size(208, 26);
+            this.ShiftLabel.TabIndex = 10;
+            this.ShiftLabel.Text = "Введите длину шага";
+            // 
+            // DecryptLabel
+            // 
+            this.DecryptLabel.AutoSize = true;
+            this.DecryptLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DecryptLabel.Location = new System.Drawing.Point(467, 35);
+            this.DecryptLabel.Name = "DecryptLabel";
+            this.DecryptLabel.Size = new System.Drawing.Size(350, 26);
+            this.DecryptLabel.TabIndex = 9;
+            this.DecryptLabel.Text = "Введите текст для расшифрования";
+            // 
+            // EncryptLabel
+            // 
+            this.EncryptLabel.AutoSize = true;
+            this.EncryptLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EncryptLabel.Location = new System.Drawing.Point(26, 35);
+            this.EncryptLabel.Name = "EncryptLabel";
+            this.EncryptLabel.Size = new System.Drawing.Size(318, 26);
+            this.EncryptLabel.TabIndex = 8;
+            this.EncryptLabel.Text = "Введите текст для шифрования";
             // 
             // DecryptButton
             // 
@@ -347,7 +413,7 @@
             // OpenUrlButton
             // 
             this.OpenUrlButton.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OpenUrlButton.Location = new System.Drawing.Point(428, 372);
+            this.OpenUrlButton.Location = new System.Drawing.Point(479, 372);
             this.OpenUrlButton.Name = "OpenUrlButton";
             this.OpenUrlButton.Size = new System.Drawing.Size(211, 52);
             this.OpenUrlButton.TabIndex = 2;
@@ -357,11 +423,12 @@
             // 
             // UrlTextBox
             // 
+            this.UrlTextBox.Enabled = false;
             this.UrlTextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UrlTextBox.Location = new System.Drawing.Point(205, 39);
+            this.UrlTextBox.Location = new System.Drawing.Point(325, 39);
             this.UrlTextBox.Multiline = true;
             this.UrlTextBox.Name = "UrlTextBox";
-            this.UrlTextBox.Size = new System.Drawing.Size(707, 37);
+            this.UrlTextBox.Size = new System.Drawing.Size(587, 37);
             this.UrlTextBox.TabIndex = 1;
             // 
             // ChoiceThemasListBox
@@ -374,59 +441,9 @@
             "Ссылки"});
             this.ChoiceThemasListBox.Location = new System.Drawing.Point(3, 3);
             this.ChoiceThemasListBox.Name = "ChoiceThemasListBox";
-            this.ChoiceThemasListBox.Size = new System.Drawing.Size(196, 530);
+            this.ChoiceThemasListBox.Size = new System.Drawing.Size(278, 530);
             this.ChoiceThemasListBox.TabIndex = 0;
             this.ChoiceThemasListBox.SelectedIndexChanged += new System.EventHandler(this.ChoiceThemasListBox_SelectedIndexChanged);
-            // 
-            // SymbolLabel
-            // 
-            this.SymbolLabel.AutoSize = true;
-            this.SymbolLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SymbolLabel.Location = new System.Drawing.Point(45, 38);
-            this.SymbolLabel.Name = "SymbolLabel";
-            this.SymbolLabel.Size = new System.Drawing.Size(199, 26);
-            this.SymbolLabel.TabIndex = 8;
-            this.SymbolLabel.Text = "Выберите символы";
-            // 
-            // PasswordLabel
-            // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PasswordLabel.Location = new System.Drawing.Point(60, 41);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(215, 26);
-            this.PasswordLabel.TabIndex = 8;
-            this.PasswordLabel.Text = "Введите свой пароль";
-            // 
-            // EncryptLabel
-            // 
-            this.EncryptLabel.AutoSize = true;
-            this.EncryptLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EncryptLabel.Location = new System.Drawing.Point(26, 35);
-            this.EncryptLabel.Name = "EncryptLabel";
-            this.EncryptLabel.Size = new System.Drawing.Size(318, 26);
-            this.EncryptLabel.TabIndex = 8;
-            this.EncryptLabel.Text = "Введите текст для шифрования";
-            // 
-            // DecryptLabel
-            // 
-            this.DecryptLabel.AutoSize = true;
-            this.DecryptLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DecryptLabel.Location = new System.Drawing.Point(467, 35);
-            this.DecryptLabel.Name = "DecryptLabel";
-            this.DecryptLabel.Size = new System.Drawing.Size(340, 26);
-            this.DecryptLabel.TabIndex = 9;
-            this.DecryptLabel.Text = "Введите текст для дешифрования";
-            // 
-            // ShiftLabel
-            // 
-            this.ShiftLabel.AutoSize = true;
-            this.ShiftLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ShiftLabel.Location = new System.Drawing.Point(41, 190);
-            this.ShiftLabel.Name = "ShiftLabel";
-            this.ShiftLabel.Size = new System.Drawing.Size(208, 26);
-            this.ShiftLabel.TabIndex = 10;
-            this.ShiftLabel.Text = "Введите длину шага";
             // 
             // MainForm
             // 
@@ -435,6 +452,8 @@
             this.ClientSize = new System.Drawing.Size(943, 565);
             this.Controls.Add(this.mainTabControl);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(961, 612);
+            this.MinimumSize = new System.Drawing.Size(961, 612);
             this.Name = "MainForm";
             this.Text = "Генератор случайных паролей";
             this.mainTabControl.ResumeLayout(false);
@@ -484,6 +503,7 @@
         private System.Windows.Forms.Label ShiftLabel;
         private System.Windows.Forms.Label DecryptLabel;
         private System.Windows.Forms.Label EncryptLabel;
+        private System.Windows.Forms.Label InfoLabel;
     }
 }
 
