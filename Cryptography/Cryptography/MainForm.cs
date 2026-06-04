@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,14 @@ namespace Cryptography
         private PasswordStrengthEvaluator passwordEvaluator = new PasswordStrengthEvaluator();
         private CaesarCipher caesarCipher = new CaesarCipher();
         private CaesarAnimation caesarAnimation = new CaesarAnimation();
+
+        private DatabaseLoader databaseLoader = new DatabaseLoader();
         public MainForm()
         {
             InitializeComponent();
+            databaseLoader.LoadHelpTopics(ChoiceThemasListBox);
         }
+
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
@@ -98,6 +103,23 @@ namespace Cryptography
             else
             {
                 ResultRichTextBox2.Text = encrypted;
+            }
+        }
+
+        private void OpenUrlButton_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != null && textBox1.Text != "")
+            {
+                Process.Start(new ProcessStartInfo(textBox1.Text) { UseShellExecute = true });
+            }
+        }
+
+        private void ChoiceThemasListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = ChoiceThemasListBox.SelectedIndex;
+            if (index >= 0 && index < databaseLoader.helpUrls.Count)
+            {
+                textBox1.Text = databaseLoader.helpUrls[index];
             }
         }
     }

@@ -331,6 +331,7 @@
             this.OpenUrlButton.TabIndex = 2;
             this.OpenUrlButton.Text = "Открыть";
             this.OpenUrlButton.UseVisualStyleBackColor = true;
+            this.OpenUrlButton.Click += new System.EventHandler(this.OpenUrlButton_Click);
             // 
             // textBox1
             // 
@@ -353,6 +354,7 @@
             this.ChoiceThemasListBox.Name = "ChoiceThemasListBox";
             this.ChoiceThemasListBox.Size = new System.Drawing.Size(196, 530);
             this.ChoiceThemasListBox.TabIndex = 0;
+            this.ChoiceThemasListBox.SelectedIndexChanged += new System.EventHandler(this.ChoiceThemasListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
