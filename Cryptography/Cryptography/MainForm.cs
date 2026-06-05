@@ -19,6 +19,7 @@ namespace Cryptography
         private CaesarAnimation caesarAnimation = new CaesarAnimation();
 
         private DatabaseLoader databaseLoader = new DatabaseLoader();
+
         public MainForm()
         {
             InitializeComponent();
