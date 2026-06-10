@@ -15,6 +15,7 @@ namespace Cryptography
         public List<string> helpNames = new List<string>();
         public List<string> helpUrls = new List<string>();
 
+        // Загружает из БД список тем и ссылок
         public (List<string> names, List<string> urls) LoadHelpData()
         {
             List<string> names = new List<string>();
@@ -49,6 +50,7 @@ namespace Cryptography
             }
         }
 
+        // Загружает темы в ListBox
         public void LoadHelpTopics(ListBox listBox)
         {
             listBox.Items.Clear();

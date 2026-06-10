@@ -10,11 +10,12 @@ namespace Cryptography
     public class PasswordGenerator
     {
         private Random random = new Random();
-        private string RussianSymbol = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
-        private string EnglishSymbol = "abcdefghijklmnopqrstuvwxyz";
-        private string numbers = "0123456789";
-        private string SpecialSymbol = "`~!@#$%^&*()_+-= {}[]|\\:;\"'<>,.?/";
+        private string RussianSymbol = CaesarCipher.russianAlphabet;
+        private string EnglishSymbol = CaesarCipher.englishAlphabet;
+        private string numbers = CaesarCipher.numbers;
+        private string SpecialSymbol = CaesarCipher.Specials;
 
+        // Генерирует случайный пароль заданной длины из выбранных символов
         public string GeneratePassword(int length, bool RussianSymbol, bool EnglishSymbol, bool Numbers, bool SpecialSymbol)
         {
             string selectedSymbols = "";

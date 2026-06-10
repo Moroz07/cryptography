@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace Cryptography
 {
+
+    // Класс реализует шифр Цезаря — метод шифрования, при котором каждый символ 
+    // заменяется на другой, сдвинутый на фиксированное число позиций в алфавите.
     public class CaesarCipher
     {
-        private string russianAlphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
-        private string englishAlphabet = "abcdefghijklmnopqrstuvwxyz";
-        private string numbers = "0123456789";
-
+        public static string russianAlphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
+        public static string russianUpper = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        public static string englishAlphabet = "abcdefghijklmnopqrstuvwxyz";
+        public static string englishUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public static string numbers = "0123456789";
+        public static string Specials = "`~!@#$%^&*()_+-= {}[]|\\:;\"'<>,.?/";
+        
+        // Сдвигает символ в пределах указанного алфавита
         private char ShiftChar(char c, int shift, string alphabet)
         {
             int index = alphabet.IndexOf(c);
@@ -29,6 +36,7 @@ namespace Cryptography
             return alphabet[newIndex];
         }
 
+        // Шифрует текст методом Цезаря
         public string Encrypt(string plainText, int shift)
         {
             if (plainText == null || plainText == "")
@@ -42,7 +50,21 @@ namespace Cryptography
             {
                 char symbol = plainText[i];
 
-                char newChar = ShiftChar(symbol, shift, russianAlphabet);
+                char newChar = ShiftChar(symbol, shift, russianUpper);
+                if (newChar != symbol)
+                {
+                    result[i] = newChar;
+                    continue;
+                }
+
+                newChar = ShiftChar(symbol, shift, russianAlphabet);
+                if (newChar != symbol)
+                {
+                    result[i] = newChar;
+                    continue;
+                }
+
+                newChar = ShiftChar(symbol, shift, englishUpper);
                 if (newChar != symbol)
                 {
                     result[i] = newChar;
@@ -63,12 +85,15 @@ namespace Cryptography
                     continue;
                 }
 
+
                 result[i] = symbol;
             }
 
             return new string(result);
         }
 
+
+        // Дешифрует текст, зашифрованный шифром Цезаря
         public string Decrypt(string cipherText, int shift)
         {
             if (cipherText == null || cipherText == "")

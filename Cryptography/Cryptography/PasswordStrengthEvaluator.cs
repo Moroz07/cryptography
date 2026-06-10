@@ -8,51 +8,51 @@ namespace Cryptography
 {
     public class PasswordStrengthEvaluator
     {
-        private string russianSymbol = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
-        private string englishSymbol = "abcdefghijklmnopqrstuvwxyz";
-        private string numbers = "0123456789";
-        private string specials = "`~!@#$%^&*()_+-= {}[]|\\:;\"'<>,.?/";
-
+        // Проверяет наличие русских букв в пароле
         private bool IsRussianSymbol(string password)
         {
             foreach (char c in password)
-                if (russianSymbol.Contains(c))
+                if (CaesarCipher.russianAlphabet.Contains(c) || CaesarCipher.russianUpper.Contains(c))
                 {
                     return true;
                 }
             return false;
         }
 
+        // Проверяет наличие английских букв в пароле
         private bool IsEnglishSymbol(string password)
         {
             foreach (char c in password)
-                if (englishSymbol.Contains(c))
+                if (CaesarCipher.englishAlphabet.Contains(c) || CaesarCipher.englishUpper.Contains(c))
                 {
                     return true;
                 }
             return false;
         }
 
+        // Проверяет наличие цифр в пароле
         private bool IsNumbers(string password)
         {
             foreach (char c in password)
-                if (numbers.Contains(c))
+                if (CaesarCipher.numbers.Contains(c))
                 {
                     return true;
                 }
             return false;
         }
 
+        // Проверяет наличие спецсимволов в пароле
         private bool IsSpecialSymbol(string password)
         {
             foreach (char c in password)
-                if (specials.Contains(c))
+                if (CaesarCipher.Specials.Contains(c))
                 {
                     return true;
                 }
             return false;
         }
 
+        // Возвращает бонусные баллы за длину пароля
         private int GetLengthBonus(int length)
         {
             if (length >= 8 && length <= 11)
@@ -66,6 +66,7 @@ namespace Cryptography
             return 0;
         }
 
+        // Возвращает текстовый уровень надёжности по баллам
         private string GetScoreLevel(int score)
         {
             if (score <= 2)
@@ -83,6 +84,8 @@ namespace Cryptography
             return "очень надёжный";
         }
 
+
+        // Оценивает пароль и возвращает результат (баллы, уровень, детали)
         public EvaluationResult Evaluate(string password)
         {
             if (password == null || password == "")

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cryptography
 {
+    // Результат оценки надёжности пароля
     public struct EvaluationResult
     {
         public int ScoreValue;

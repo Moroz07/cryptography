@@ -13,16 +13,19 @@ namespace Cryptography
 {
     public partial class MainForm : Form
     {
+
+
         private PasswordGenerator passwordGenerator = new PasswordGenerator();
         private PasswordStrengthEvaluator passwordEvaluator = new PasswordStrengthEvaluator();
         private CaesarCipher caesarCipher = new CaesarCipher();
         private CaesarAnimation caesarAnimation = new CaesarAnimation();
 
-        private DatabaseLoader databaseLoader = new DatabaseLoader();
+        private HelpDataLoader helpDataLoader = new HelpDataLoader();
+        private List<HelpItem> helpItems;
         public MainForm()
         {
             InitializeComponent();
-            databaseLoader.LoadHelpTopics(ChoiceThemasListBox);
+            LoadHelpData();
         }
 
 
@@ -117,11 +120,29 @@ namespace Cryptography
         private void ChoiceThemasListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = ChoiceThemasListBox.SelectedIndex;
-            if (index >= 0 && index < databaseLoader.helpUrls.Count)
+            if (index >= 0 && index < helpItems.Count)
             {
-                UrlTextBox.Text = databaseLoader.helpUrls[index];
+                UrlTextBox.Text = helpItems[index].Url;
             }
         }
+
+        private void LoadHelpData()
+        {
+            helpItems = helpDataLoader.LoadHelpData();
+            ChoiceThemasListBox.Items.Clear();
+
+            if (helpItems.Count == 0)
+            {
+                ChoiceThemasListBox.Items.Add("Нет данных. Проверьте Базу Данных.");
+                return;
+            }
+
+            foreach (HelpItem item in helpItems)
+            {
+                ChoiceThemasListBox.Items.Add(item.Title);
+            }
+        }
+
 
 
     }

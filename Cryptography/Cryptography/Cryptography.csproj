@@ -98,8 +98,9 @@
   <ItemGroup>
     <Compile Include="CaesarAnimation.cs" />
     <Compile Include="CaesarCipher.cs" />
-    <Compile Include="DatabaseLoader.cs" />
     <Compile Include="EvaluationResult.cs" />
+    <Compile Include="HelpDataLoader.cs" />
+    <Compile Include="HelpItem.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

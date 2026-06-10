@@ -16,6 +16,7 @@ namespace Cryptography
         private RichTextBox targetTextBox;
         private int animationSpeed = 200;
 
+        // Запускает анимацию пошагового вывода зашифрованного текста
         public void StartAnimation(string original, string encrypted, RichTextBox target)
         {
             originalText = original;
@@ -30,6 +31,7 @@ namespace Cryptography
             animationTimer.Start();
         }
 
+        // Останавливает анимацию
         public void StopAnimation()
         {
             if (animationTimer != null)
@@ -40,6 +42,7 @@ namespace Cryptography
             }
         }
 
+        // Выводит следующий символ по таймеру
         private void OnTimerTick(object sender, EventArgs e)
         {
             if (currentStep < encryptedText.Length)
