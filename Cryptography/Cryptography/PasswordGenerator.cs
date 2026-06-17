@@ -15,6 +15,7 @@ namespace Cryptography
         private string numbers = CaesarCipher.numbers;
         private string SpecialSymbol = CaesarCipher.Specials;
 
+
         // Генерирует случайный пароль заданной длины из выбранных символов
         public string GeneratePassword(int length, bool RussianSymbol, bool EnglishSymbol, bool Numbers, bool SpecialSymbol)
         {
