@@ -13,18 +13,27 @@ namespace Cryptography
 {
     public partial class MainForm : Form
     {
+        //Объявление страниц
+        private TabPage passwordGeneratePage_;
+        private TabPage passwordStrengthEvaluatorPage_;
+        private TabPage cipherPage_;
+        private TabPage helpPage_;
 
-
+        //объявление классов с методами
         private PasswordGenerator passwordGenerator = new PasswordGenerator();
         private PasswordStrengthEvaluator passwordEvaluator = new PasswordStrengthEvaluator();
         private CaesarCipher caesarCipher = new CaesarCipher();
         private CaesarAnimation caesarAnimation = new CaesarAnimation();
-
         private HelpDataLoader helpDataLoader = new HelpDataLoader();
         private List<HelpItem> helpItems;
         public MainForm()
         {
             InitializeComponent();
+            passwordGeneratePage_ = PasswordGeneratePage;
+            passwordStrengthEvaluatorPage_ = PasswordStrengthEvaluatorPage;
+            cipherPage_ = CipherPage;
+            helpPage_ = HelpPage;
+
             LoadHelpData();
         }
 
