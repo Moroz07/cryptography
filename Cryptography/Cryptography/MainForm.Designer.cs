@@ -78,7 +78,7 @@
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(943, 565);
+            this.mainTabControl.Size = new System.Drawing.Size(1182, 589);
             this.mainTabControl.TabIndex = 0;
             // 
             // PasswordGeneratePage
@@ -96,7 +96,7 @@
             this.PasswordGeneratePage.Location = new System.Drawing.Point(4, 25);
             this.PasswordGeneratePage.Name = "PasswordGeneratePage";
             this.PasswordGeneratePage.Padding = new System.Windows.Forms.Padding(3);
-            this.PasswordGeneratePage.Size = new System.Drawing.Size(935, 536);
+            this.PasswordGeneratePage.Size = new System.Drawing.Size(1174, 560);
             this.PasswordGeneratePage.TabIndex = 2;
             this.PasswordGeneratePage.Text = "Генерация пароля";
             this.PasswordGeneratePage.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             // 
             this.LengthPasswordLabel.AutoSize = true;
             this.LengthPasswordLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LengthPasswordLabel.Location = new System.Drawing.Point(536, 59);
+            this.LengthPasswordLabel.Location = new System.Drawing.Point(840, 64);
             this.LengthPasswordLabel.Name = "LengthPasswordLabel";
             this.LengthPasswordLabel.Size = new System.Drawing.Size(229, 26);
             this.LengthPasswordLabel.TabIndex = 7;
@@ -135,7 +135,7 @@
             // LengthPasswordNumericUpDown
             // 
             this.LengthPasswordNumericUpDown.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LengthPasswordNumericUpDown.Location = new System.Drawing.Point(561, 96);
+            this.LengthPasswordNumericUpDown.Location = new System.Drawing.Point(865, 101);
             this.LengthPasswordNumericUpDown.Maximum = new decimal(new int[] {
             80,
             0,
@@ -159,7 +159,7 @@
             // 
             this.GeneratePasswordRichTextBox.Enabled = false;
             this.GeneratePasswordRichTextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GeneratePasswordRichTextBox.Location = new System.Drawing.Point(405, 322);
+            this.GeneratePasswordRichTextBox.Location = new System.Drawing.Point(644, 346);
             this.GeneratePasswordRichTextBox.Name = "GeneratePasswordRichTextBox";
             this.GeneratePasswordRichTextBox.Size = new System.Drawing.Size(534, 214);
             this.GeneratePasswordRichTextBox.TabIndex = 5;
@@ -174,7 +174,6 @@
             this.GenerateButton.TabIndex = 4;
             this.GenerateButton.Text = "Сгенерировать";
             this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
             // 
             // SpecialSymbolCheckBox
             // 
@@ -273,7 +272,6 @@
             this.StrengthEvaluatorButton.TabIndex = 0;
             this.StrengthEvaluatorButton.Text = "Оценить";
             this.StrengthEvaluatorButton.UseVisualStyleBackColor = true;
-            this.StrengthEvaluatorButton.Click += new System.EventHandler(this.StrengthEvaluatorButton_Click);
             // 
             // CipherPage
             // 
@@ -289,7 +287,7 @@
             this.CipherPage.Location = new System.Drawing.Point(4, 25);
             this.CipherPage.Name = "CipherPage";
             this.CipherPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CipherPage.Size = new System.Drawing.Size(935, 536);
+            this.CipherPage.Size = new System.Drawing.Size(1174, 560);
             this.CipherPage.TabIndex = 4;
             this.CipherPage.Text = "Шифр Цезаря";
             this.CipherPage.UseVisualStyleBackColor = true;
@@ -333,7 +331,6 @@
             this.DecryptButton.TabIndex = 5;
             this.DecryptButton.Text = "Расшифровать";
             this.DecryptButton.UseVisualStyleBackColor = true;
-            this.DecryptButton.Click += new System.EventHandler(this.DecryptButton_Click);
             // 
             // EncryptButton
             // 
@@ -344,15 +341,14 @@
             this.EncryptButton.TabIndex = 4;
             this.EncryptButton.Text = "Зашифровать";
             this.EncryptButton.UseVisualStyleBackColor = true;
-            this.EncryptButton.Click += new System.EventHandler(this.EncryptButton_Click);
             // 
             // ResultRichTextBox2
             // 
             this.ResultRichTextBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ResultRichTextBox2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResultRichTextBox2.Location = new System.Drawing.Point(3, 377);
+            this.ResultRichTextBox2.Location = new System.Drawing.Point(3, 401);
             this.ResultRichTextBox2.Name = "ResultRichTextBox2";
-            this.ResultRichTextBox2.Size = new System.Drawing.Size(929, 156);
+            this.ResultRichTextBox2.Size = new System.Drawing.Size(1168, 156);
             this.ResultRichTextBox2.TabIndex = 3;
             this.ResultRichTextBox2.Text = "";
             // 
@@ -419,7 +415,6 @@
             this.OpenUrlButton.TabIndex = 2;
             this.OpenUrlButton.Text = "Открыть";
             this.OpenUrlButton.UseVisualStyleBackColor = true;
-            this.OpenUrlButton.Click += new System.EventHandler(this.OpenUrlButton_Click);
             // 
             // UrlTextBox
             // 
@@ -443,16 +438,15 @@
             this.ChoiceThemasListBox.Name = "ChoiceThemasListBox";
             this.ChoiceThemasListBox.Size = new System.Drawing.Size(278, 530);
             this.ChoiceThemasListBox.TabIndex = 0;
-            this.ChoiceThemasListBox.SelectedIndexChanged += new System.EventHandler(this.ChoiceThemasListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 565);
+            this.ClientSize = new System.Drawing.Size(1182, 589);
             this.Controls.Add(this.mainTabControl);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(961, 612);
+            this.MaximumSize = new System.Drawing.Size(1200, 650);
             this.MinimumSize = new System.Drawing.Size(961, 612);
             this.Name = "MainForm";
             this.Text = "Генератор случайных паролей";
