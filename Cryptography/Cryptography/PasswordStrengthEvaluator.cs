@@ -52,6 +52,23 @@ namespace Cryptography
             return false;
         }
 
+        private bool IsUpperSymbol(string password)
+        {
+            foreach(char c in password)
+            {
+                if (CaesarCipher.russianUpper.Contains(c))
+                {
+                    return true;
+                }
+                if (CaesarCipher.englishUpper.Contains(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
         // Возвращает бонусные баллы за длину пароля
         private int GetLengthBonus(int length)
         {
@@ -69,22 +86,22 @@ namespace Cryptography
         // Возвращает текстовый уровень надёжности по баллам
         private string GetScoreLevel(int score)
         {
-            if (score <= 2)
+            if (score <= 3)
             {
                 return "очень слабый";
             }
-            if (score == 3)
+            if (score == 4)
             {
                 return "слабый";
             }
-            if (score <= 5)
+            if (score <= 6)
             {
                 return "хороший";
             }
             return "очень надёжный";
         }
 
-
+        
         // Оценивает пароль и возвращает результат (баллы, уровень, детали)
         public EvaluationResult Evaluate(string password)
         {
@@ -98,6 +115,7 @@ namespace Cryptography
             bool hasEnglish = false;
             bool hasNumbers = false;
             bool hasSpecials = false;
+            bool hasUpper = false;
 
             if (IsRussianSymbol(password))
             {
@@ -119,6 +137,11 @@ namespace Cryptography
                 score++;
                 hasSpecials = true;
             }
+            if (IsUpperSymbol(password))
+            {
+                score++;
+                hasUpper = true;
+            }
 
             int bonus = GetLengthBonus(password.Length);
             score += bonus;
@@ -128,6 +151,7 @@ namespace Cryptography
                              $"Английские: {(hasEnglish ? "да (+1)" : "нет (0)")},\n " +
                              $"Цифры: {(hasNumbers ? "да (+1)" : "нет (0)")},\n " +
                              $"Спецсимволы: {(hasSpecials ? "да (+1)" : "нет (0)")},\n " +
+                             $"Заглавные: {(hasUpper ? "да (+1)" : "нет (0)")},\n " +
                              $"Длина ({password.Length}): +{bonus}";
 
             return new EvaluationResult(score, level, details);

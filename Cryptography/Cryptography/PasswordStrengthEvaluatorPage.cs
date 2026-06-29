@@ -48,10 +48,10 @@ namespace Cryptography
             this.Controls.Add(StrengthEvaluatorButton);
 
             ResultRichTextBox = new RichTextBox();
-            ResultRichTextBox.Font = new Font("Times New Roman", 13.8F);
+            ResultRichTextBox.Font = new Font("Consolas", 14F);
             ResultRichTextBox.Location = new Point(324, 255);
             ResultRichTextBox.Size = new Size(608, 278);
-            ResultRichTextBox.Enabled = false;
+            ResultRichTextBox.ReadOnly = true;
             this.Controls.Add(ResultRichTextBox);
         }
 
@@ -72,7 +72,9 @@ namespace Cryptography
         public void UpdateResult(string password)
         {
             if (password == null || password == "")
+            {
                 return;
+            }
 
             EvaluationResult result = evaluator.Evaluate(password);
             ResultRichTextBox.Text = $"Оценка: {result.ScoreValue} баллов ({result.ScoreLevel})\n\n{result.Details}";

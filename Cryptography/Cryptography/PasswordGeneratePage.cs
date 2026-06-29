@@ -69,16 +69,16 @@ namespace Cryptography
             Label LengthPasswordLabel = new Label();
             LengthPasswordLabel.Text = "Введите длину пароля";
             LengthPasswordLabel.Font = new Font("Times New Roman", 13.8F);
-            LengthPasswordLabel.Location = new Point(536, 59);
+            LengthPasswordLabel.Location = new Point(50, 300);
             LengthPasswordLabel.Size = new Size(229, 26);
             this.Controls.Add(LengthPasswordLabel);
 
             LengthPasswordNumericUpDown = new NumericUpDown();
             LengthPasswordNumericUpDown.Font = new Font("Times New Roman", 13.8F);
-            LengthPasswordNumericUpDown.Location = new Point(561, 96);
+            LengthPasswordNumericUpDown.Location = new Point(285, 300);
             LengthPasswordNumericUpDown.Minimum = 1;
             LengthPasswordNumericUpDown.Maximum = 80;
-            LengthPasswordNumericUpDown.Size = new Size(167, 34);
+            LengthPasswordNumericUpDown.Size = new Size(100, 34);
             LengthPasswordNumericUpDown.Value = 1;
             this.Controls.Add(LengthPasswordNumericUpDown);
 
@@ -91,10 +91,10 @@ namespace Cryptography
             this.Controls.Add(GenerateButton);
 
             GeneratePasswordRichTextBox = new RichTextBox();
-            GeneratePasswordRichTextBox.Font = new Font("Times New Roman", 13.8F);
-            GeneratePasswordRichTextBox.Location = new Point(405, 322);
-            GeneratePasswordRichTextBox.Size = new Size(534, 214);
-            GeneratePasswordRichTextBox.Enabled = false;
+            GeneratePasswordRichTextBox.Font = new Font("Consolas", 18F);
+            GeneratePasswordRichTextBox.Location = new Point(405, 200);
+            GeneratePasswordRichTextBox.Size = new Size(534, 350);
+            GeneratePasswordRichTextBox.ReadOnly = true;
             this.Controls.Add(GeneratePasswordRichTextBox);
 
             Label InfoLabel = new Label();

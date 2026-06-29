@@ -23,7 +23,7 @@ namespace Cryptography
             encryptedText = encrypted;
             targetTextBox = target;
             currentStep = 0;
-            targetTextBox.Text = "";
+            
 
             animationTimer = new Timer();
             animationTimer.Interval = animationSpeed;
@@ -53,6 +53,7 @@ namespace Cryptography
             else
             {
                 StopAnimation();
+                targetTextBox.Text += "\n";
             }
         }
     }

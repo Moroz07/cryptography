@@ -10,8 +10,8 @@ namespace Cryptography
 {
     public class HelpDataLoader
     {
-        //private const string connectSetting = "Host=192.168.1.48;Username=st56-11;Password=5611;Database=CryptographyHelp";
-        private const string connectSetting = "Host=localhost;Username=postgres;Password=123;Database=CryptographyHelp";
+        private const string connectSetting = "Host=192.168.1.48;Username=st53-5;Password=535;Database=CryptographyHelp";
+        //private const string connectSetting = "Host=localhost;Username=postgres;Password=123;Database=CryptographyHelp";
         public List<string> helpNames = new List<string>();
         public List<string> helpUrls = new List<string>();
 
