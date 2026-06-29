@@ -19,6 +19,7 @@ namespace Cryptography
         private Button EncryptButton;
         private Button DecryptButton;
         private RichTextBox ResultRichTextBox2;
+        private RichTextBox AnimationRichTextBox;
 
         public CipherPage()
         {
@@ -79,7 +80,7 @@ namespace Cryptography
             EncryptButton = new Button();
             EncryptButton.Text = "Зашифровать";
             EncryptButton.Font = new Font("Times New Roman", 13.8F);
-            EncryptButton.Location = new Point(26, 260);
+            EncryptButton.Location = new Point(26, 200);
             EncryptButton.Size = new Size(192, 43);
             EncryptButton.Click += EncryptButton_Click;
             this.Controls.Add(EncryptButton);
@@ -87,7 +88,7 @@ namespace Cryptography
             DecryptButton = new Button();
             DecryptButton.Text = "Расшифровать";
             DecryptButton.Font = new Font("Times New Roman", 13.8F);
-            DecryptButton.Location = new Point(467, 260);
+            DecryptButton.Location = new Point(467, 200);
             DecryptButton.Size = new Size(192, 43);
             DecryptButton.Click += DecryptButton_Click;
             this.Controls.Add(DecryptButton);
@@ -95,10 +96,17 @@ namespace Cryptography
             ResultRichTextBox2 = new RichTextBox();
             ResultRichTextBox2.Font = new Font("Consolas", 14F);
             ResultRichTextBox2.Location = new Point(3, 320);
-            ResultRichTextBox2.Size = new Size(929, 200);
+            ResultRichTextBox2.Size = new Size(929, 180);
             ResultRichTextBox2.ScrollBars = RichTextBoxScrollBars.Vertical;
             ResultRichTextBox2.ReadOnly = true;
             this.Controls.Add(ResultRichTextBox2);
+
+            AnimationRichTextBox = new RichTextBox();
+            AnimationRichTextBox.Font = new Font("Consolas", 18F);
+            AnimationRichTextBox.Location = new Point(3, 290);
+            AnimationRichTextBox.Size = new Size(929, 30);
+            AnimationRichTextBox.ReadOnly = true;
+            this.Controls.Add(AnimationRichTextBox);
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
@@ -119,12 +127,13 @@ namespace Cryptography
 
             if (shift <= 20 && text.Length <= 50)
             {
-                caesarAnimation.StartAnimation(text, encrypted, ResultRichTextBox2);
+                caesarAnimation.StartAnimation(text, encrypted, AnimationRichTextBox);
+
             }
             else
             {
-                ResultRichTextBox2.Text = encrypted + "\n";
-                ResultRichTextBox2.Text += huistory;
+                ResultRichTextBox2.Text += encrypted + "\n";
+                
             }
         }
 
@@ -146,13 +155,13 @@ namespace Cryptography
 
             if (shift <= 20 && text.Length <= 50)
             {
-                caesarAnimation.StartAnimation(text, decrypted, ResultRichTextBox2);
-                ResultRichTextBox2.Text += huistory;
+                caesarAnimation.StartAnimation(text, decrypted, AnimationRichTextBox);
+
             }
             else
             {
-                ResultRichTextBox2.Text = decrypted + "\n";
-                ResultRichTextBox2.Text += huistory;
+                ResultRichTextBox2.Text += decrypted + "\n";
+                
             }
         }
     }
