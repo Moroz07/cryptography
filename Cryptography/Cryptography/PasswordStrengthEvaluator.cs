@@ -147,11 +147,11 @@ namespace Cryptography
             score += bonus;
 
             string level = GetScoreLevel(score);
-            string details = $"Русские: {(hasRussian ? "да (+1)" : "нет (0)")},\n " +
+            string details = $" Русские: {(hasRussian ? "да (+1)" : "нет (0)")},\n " +
                              $"Английские: {(hasEnglish ? "да (+1)" : "нет (0)")},\n " +
                              $"Цифры: {(hasNumbers ? "да (+1)" : "нет (0)")},\n " +
                              $"Спецсимволы: {(hasSpecials ? "да (+1)" : "нет (0)")},\n " +
-                             $"Заглавные: {(hasUpper ? "да (+1)" : "нет (0)")},\n " +
+                             $"Заглавные буквы: {(hasUpper ? "да (+1)" : "нет (0)")},\n " +
                              $"Длина ({password.Length}): +{bonus}";
 
             return new EvaluationResult(score, level, details);
