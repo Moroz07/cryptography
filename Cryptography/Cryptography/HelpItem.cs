@@ -10,12 +10,12 @@ namespace Cryptography
     {
         public string Title { get; set; }
 
-        public string Url { get; set; }
+        public string Content { get; set; }
 
-        public HelpItem(string title, string url)
+        public HelpItem(string title, string сontent)
         {
             Title = title;
-            Url = url;
+            Content = сontent;
         }
     }
 }

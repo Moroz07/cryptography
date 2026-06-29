@@ -15,8 +15,8 @@ namespace Cryptography
         private List<HelpItem> helpItems;
 
         private ListBox ChoiceThemasListBox;
-        private TextBox UrlTextBox;
-        private Button OpenUrlButton;
+        private RichTextBox ContentRichTextBox; // Заменяем TextBox на RichTextBox
+        
 
         public HelpPage()
         {
@@ -28,28 +28,28 @@ namespace Cryptography
 
         private void InitializeComponents()
         {
+            
             ChoiceThemasListBox = new ListBox();
-            ChoiceThemasListBox.Dock = DockStyle.Left;
+            ChoiceThemasListBox.Location = new Point(10, 10);
+            ChoiceThemasListBox.Size = new Size(280, this.Height - 40);
+            ChoiceThemasListBox.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
             ChoiceThemasListBox.Font = new Font("Times New Roman", 12F);
-            ChoiceThemasListBox.Size = new Size(278, 530);
             ChoiceThemasListBox.SelectedIndexChanged += ChoiceThemasListBox_SelectedIndexChanged;
             this.Controls.Add(ChoiceThemasListBox);
 
-            UrlTextBox = new TextBox();
-            UrlTextBox.Font = new Font("Times New Roman", 13.8F);
-            UrlTextBox.Location = new Point(325, 39);
-            UrlTextBox.Size = new Size(587, 37);
-            UrlTextBox.Multiline = true;
-            UrlTextBox.Enabled = false;
-            this.Controls.Add(UrlTextBox);
+            
+            ContentRichTextBox = new RichTextBox();
+            ContentRichTextBox.Location = new Point(300, 10);
+            ContentRichTextBox.Size = new Size(this.Width - 320, this.Height - 40);
+            ContentRichTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+            ContentRichTextBox.Font = new Font("Times New Roman", 14F);
+            ContentRichTextBox.BackColor = Color.White;
+            ContentRichTextBox.ReadOnly = true;
+            ContentRichTextBox.WordWrap = true;
+            ContentRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            ContentRichTextBox.Text = "Выберите тему из списка слева";
+            this.Controls.Add(ContentRichTextBox);
 
-            OpenUrlButton = new Button();
-            OpenUrlButton.Text = "Открыть";
-            OpenUrlButton.Font = new Font("Times New Roman", 13.8F);
-            OpenUrlButton.Location = new Point(479, 372);
-            OpenUrlButton.Size = new Size(211, 52);
-            OpenUrlButton.Click += OpenUrlButton_Click;
-            this.Controls.Add(OpenUrlButton);
         }
 
         private void LoadHelpData()
@@ -59,13 +59,19 @@ namespace Cryptography
 
             if (helpItems == null || helpItems.Count == 0)
             {
-                ChoiceThemasListBox.Items.Add("Нет данных. Проверьте Базу Данных.");
+                ChoiceThemasListBox.Items.Add("Нет данных. Проверьте БД.");
+                ContentRichTextBox.Text = "Справка временно недоступна. Проверьте подключение к базе данных.";
                 return;
             }
 
             foreach (HelpItem item in helpItems)
             {
                 ChoiceThemasListBox.Items.Add(item.Title);
+            }
+
+            if (helpItems.Count > 0)
+            {
+                ChoiceThemasListBox.SelectedIndex = 0;
             }
         }
 
@@ -74,16 +80,18 @@ namespace Cryptography
             int index = ChoiceThemasListBox.SelectedIndex;
             if (index >= 0 && index < helpItems.Count)
             {
-                UrlTextBox.Text = helpItems[index].Url;
+                HelpItem selectedItem = helpItems[index];
+
+                
+                ContentRichTextBox.Text = selectedItem.Title.ToUpper() + "\n\n" + selectedItem.Content;
+                
+                // Возвращаем ползунок в начало
+                ContentRichTextBox.SelectionStart = 0;
+                ContentRichTextBox.SelectionLength = 0;
+                ContentRichTextBox.ScrollToCaret();
             }
         }
 
-        private void OpenUrlButton_Click(object sender, EventArgs e)
-        {
-            if (UrlTextBox.Text != null && UrlTextBox.Text != "")
-            {
-                Process.Start(new ProcessStartInfo(UrlTextBox.Text) { UseShellExecute = true });
-            }
-        }
+        
     }
 }

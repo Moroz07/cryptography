@@ -63,13 +63,13 @@ namespace Cryptography
             Label ShiftLabel = new Label();
             ShiftLabel.Text = "Введите длину шага";
             ShiftLabel.Font = new Font("Times New Roman", 13.8F);
-            ShiftLabel.Location = new Point(26, 190);
+            ShiftLabel.Location = new Point(26, 155);
             ShiftLabel.Size = new Size(208, 26);
             this.Controls.Add(ShiftLabel);
 
             NumberShiftNumericUpDown = new NumericUpDown();
             NumberShiftNumericUpDown.Font = new Font("Times New Roman", 13.8F);
-            NumberShiftNumericUpDown.Location = new Point(240, 190);
+            NumberShiftNumericUpDown.Location = new Point(240, 155);
             NumberShiftNumericUpDown.Minimum = 1;
             NumberShiftNumericUpDown.Maximum = 10000;
             NumberShiftNumericUpDown.Size = new Size(143, 34);
